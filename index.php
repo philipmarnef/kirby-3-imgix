@@ -52,7 +52,7 @@ Kirby::plugin('diesdasdigital/imgix', [
 
             static $originalComponent;
 
-            if (option('imgix', false) !== false) {
+            if (option('imgix', false) !== false and !endsWith($file->mediaUrl(), '.gif')) {
                 $url = imgix($file->mediaUrl(), $options);
 
                 return new FileVersion([
